@@ -3,6 +3,7 @@
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.29",
     "@types/node": "^20.11.30",
     "@types/readline-sync": "^1.4.8"
   }
