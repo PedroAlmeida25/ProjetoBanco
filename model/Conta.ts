@@ -1,4 +1,11 @@
 export class Conta{
+    get_saldo(): void {
+    
+    }
+    set_saldo(saldo: number) {
+
+    }
+
     //Atributos da classe conta
     private _numero: number;
     private _agencia: number;
@@ -100,13 +107,13 @@ export class Conta{
 
     public sacar(valor: number): boolean {
 
-        if (this._saldo < valor) {
-            console.log("\n Saldo Insuficiente!");
-            return false;
+        if (this._saldo >= valor) {
+            this._saldo = this._saldo - valor;
+            return true;
         }
 
-        this._saldo = this._saldo - valor;
-        return true;
+        console.log("\nSaldo Insuficiente");
+        return false;
     }
 
     public depositar(valor: number): void {
@@ -114,6 +121,16 @@ export class Conta{
     }
 
     public visualizar(){
+        let tipo: string = "";
+
+        switch(this._tipo){
+            case 1:
+                tipo = "Conta Corrente";
+                break;
+            case 2:
+                tipo = "Conta Poupança";
+                break;
+        }
 
 
         console.log("******************************");
