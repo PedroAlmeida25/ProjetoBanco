@@ -1,10 +1,4 @@
 export class Conta{
-    get_saldo(): void {
-    
-    }
-    set_saldo(saldo: number) {
-
-    }
 
     //Atributos da classe conta
     private _numero: number;

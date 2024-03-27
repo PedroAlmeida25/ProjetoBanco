@@ -1,27 +1,36 @@
 import readline = require("readline-sync");
 import { Conta } from "./model/Conta";
+import { ContaCorrente } from "./model/ContaCorrente";
+import { ContaPoupanca } from "./model/ContaPoupanca";
 
 export function main(){
     let opcao: number;
 
     // Instanciando um novo Objeto da Classe Conta
     console.log("\nCriar o Objeto da Classe Conta")
-    let c1: Conta = new Conta(1, 123, 1, "Pedro", 1000000);
+
+    const c1: Conta = new Conta(1, 123, 1, "Pedro", 10000);
+    c1.visualizar();
+    c1.sacar(5000);
+    c1.visualizar();
+    c1.depositar(1000);
     c1.visualizar();
 
-    // Modificando o meu Saldo
-    c1.set_saldo(1500000);
+    const c2: ContaCorrente = new ContaCorrente(1, 255, 2, "Isabel", 9999, 1000);
+    c2.visualizar();
+    c2.sacar(2500);
+    c2.visualizar();
+    c2.depositar(500);
+    c2.visualizar();
 
-    // Recuperando o valor do meu Saldo
-    console.log(c1.get_saldo());
+    const c3: ContaPoupanca = new ContaPoupanca(1, 361, 1, "Diego", 2500, 12);
+    c3.visualizar();
+    c3.sacar(250);
+    c3.visualizar();
+    c3.depositar(50);
+    c3.visualizar();
 
-    console.log(c1.sacar(5000));
 
-    c1.visualizar();
-
-    c1.depositar(500000);
-
-    c1.visualizar();
 
     while(true){
         console.log("                                                      ");
