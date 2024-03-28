@@ -2,9 +2,12 @@ import readline = require("readline-sync");
 import { Conta } from "./model/Conta";
 import { ContaCorrente } from "./model/ContaCorrente";
 import { ContaPoupanca } from "./model/ContaPoupanca";
+import { ContaController } from "./model/ContaController";
 
 export function main(){
     let opcao: number;
+
+    let contas: ContaController = new ContaController();
 
     // Instanciando um novo Objeto da Classe Conta
     console.log("\nCriar o Objeto da Classe Conta")
