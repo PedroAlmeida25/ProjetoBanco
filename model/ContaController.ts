@@ -18,7 +18,6 @@ export class ContaController implements ContaRepository{
     cadastrar(conta: Conta): void {
         this.listaContas.push(conta)
             console.log("A Conta foi adicionada!");
-        
     }
     atualizar(conta: Conta): void {
         throw new Error("Method not implemented.");
