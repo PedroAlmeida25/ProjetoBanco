@@ -124,7 +124,7 @@ export class Conta{
             case 2:
                 tipo = "Conta Poupança";
                 break;
-        }
+        }//fim do switch
 
 
         console.log("******************************");
