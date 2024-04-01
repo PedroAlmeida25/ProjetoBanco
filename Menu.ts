@@ -6,7 +6,7 @@ import { ContaPoupanca } from "./model/ContaPoupanca";
 import { ContaController } from "./model/ContaController";
 
 export function main(){
-    let opcao, numero, agencia, tipo, saldo, limite, aniversario: number;
+    let opcao, numero, agencia, tipo, saldo, limite, aniversario, valor, numeroDestino: number;
     let titular: string;
     const tipoContas = ['Conta Corrente', 'Conta Poupanca'];
     
@@ -188,16 +188,44 @@ export function main(){
                 case 6:
                     console.log(colors.fg.yellowstrong, "\n\n Sacar\n\n", colors.reset);
 
+                    console.log("\nDigite o numero da conta:")
+                    numero = readline.questionInt("");
+
+                    console.log("\nDigite o valor do saque ")
+                    valor = readline.questionInt("");
+
+                    contas.sacar(numero, valor);
+
                 keyPress();
                 break;
 
                 case 7:
                     console.log(colors.fg.yellowstrong, "\n\n Depositar\n\n", colors.reset);
+
+                    console.log("\nDigite o numero da conta:")
+                    numero = readline.questionInt("");
+
+                    console.log("\nDigite o valor do saque ")
+                    valor = readline.questionInt("");
+
+                    contas.depositar(numero, valor);
+
                 keyPress();
                 break;
 
                 case 8:
                     console.log(colors.fg.yellowstrong, "\n\n Transferir valores entre Contas\n\n", colors.reset);
+
+                    console.log("\nDigite o numero da conta de origem:")
+                    numero = readline.questionInt("");
+
+                    console.log("\nDigite o valor da conta de destino: ")
+                    numeroDestino = readline.questionInt("");
+
+                    console.log("\nDigite o valor do deposito (R$): ")
+                    valor = readline.questionFloat("");
+
+                    contas.transferir(numero, numeroDestino, valor);
                 keyPress();
                 break;
 

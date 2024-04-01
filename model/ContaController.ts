@@ -1,5 +1,6 @@
 ﻿import { Conta } from "../model/Conta";
 import { ContaRepository } from "./ContaRepository";
+import { colors } from "./Cores";
 
 export class ContaController implements ContaRepository{
     
@@ -57,15 +58,36 @@ export class ContaController implements ContaRepository{
     }
 
     sacar(numero: number, valor: number): void {
-        throw new Error("Method not implemented.");
+        let conta = this.buscarNoArray(numero);
+
+        if(conta != null){
+            if(conta.sacar(valor) == true)
+            console.log(colors.fg.bluestrong + "\nO saque na conta numero: " + numero + "foi efetuado com sucesso!" + colors.reset);
+        }else
+        console.log(colors.fg.red + "\nA conta numero\n\n: " + numero + "\nnao foi encontrada" + colors.reset);
     }
 
     depositar(numero: number, valor: number): void {
-        throw new Error("Method not implemented.");
+        let conta = this.buscarNoArray(numero);
+
+        if(conta != null){
+            conta.depositar(valor);
+            console.log("\nO Deposito na conta numero: " + numero + "efetuado com sucesso!");
+        }else
+        console.log("\nA conta numero\n\n: " + numero + "\nnao foi encontrada");
     }
 
     transferir(numeroOrigem: number, numeroDestino: number, valor: number): void {
-        throw new Error("Method not implemented.");
+        let contaOrigem = this.buscarNoArray(numeroOrigem);
+        let contaDestino = this.buscarNoArray(numeroDestino);
+
+        if(contaOrigem != null && contaDestino != null){
+            if(contaOrigem.sacar(valor) == true){
+                contaDestino.depositar(valor);
+                console.log("\nA transferência da conta numero: " + numeroOrigem + "para a conta" + numeroDestino + "foi efetuada com sucesso");
+            }
+        }else
+        console.log("\nA conta numero\n\n: " + numeroOrigem + "\ne/ou sua conta\n\n " + numeroDestino + "\nnao foram encontradas");
     }
 
     // Métodos Auxiliares
