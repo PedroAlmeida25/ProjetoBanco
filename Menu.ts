@@ -205,7 +205,7 @@ export function main(){
                     console.log("\nDigite o numero da conta:")
                     numero = readline.questionInt("");
 
-                    console.log("\nDigite o valor do saque ")
+                    console.log("\nDigite o valor do depósito ")
                     valor = readline.questionInt("");
 
                     contas.depositar(numero, valor);
